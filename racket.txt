@@ -1,0 +1,40 @@
+(define (my-cp lista listb listc)
+	(map 
+		(lambda (a) 
+			(map 
+				(lambda (b) 
+					(map
+						(lambda (c)
+							(list a b c)
+						)
+					listc
+					)
+				) 
+			listb
+			)
+		) 
+	lista
+	)
+)
+CODE SNIPPET: map (lambda (lista ascale) ()
+
+(define (my-cp-scaled lista listb listc ascale bscale cscale)
+	(map 
+		(lambda (a) 
+			(map 
+				(lambda (b) 
+					(map
+						(lambda (c)
+							(list (* a ascale) (* b bscale) (* c cscale))
+						)
+					listc
+					)
+				) 
+			listb
+			)
+		) 
+	lista
+	)
+)
+MAP 	: does procedure on values	syntax (map PROC VAL)
+lambda	: make a procedure to use	syntax (lambda (ARGS) (STUFF DONE))

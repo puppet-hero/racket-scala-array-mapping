@@ -1,0 +1,61 @@
+//SCALA
+
+object MyCP {
+  def main(args: Array[String]) {
+    //initial lists
+    val list1 = List(1, 2, 3)
+    val list2 = List(4, 5, 6)
+    val list3 = List(7, 8, 9)
+
+    //make lists based on the initial lists for pairing
+    val lista = list1.flatMap(x=>List(x,x,x,x,x,x,x,x,x))
+      
+    val listb1 = list2.flatMap(x=>List(x,x,x))
+    val listb2 = List(listb1, listb1, listb1)
+    val listb = listb2.flatMap(x => x)
+      
+    val listc1 = List(list3, list3, list3, list3, list3, list3, list3, list3, list3)
+    val listc = listc1.flatMap(x => x)
+      
+    //pair the modified lists for a final answer
+    val listfin = (lista, listb, listc).zipped.toList
+    
+    //print the answer
+    listfin.foreach {println}
+  }
+}
+
+
+//needs 3 args for scaling
+object MyCPScaled {
+  def main(args: Array[String]) {
+    val xint = args(0).Int
+    val yint = args(1).Int
+    val zint = args(2).Int
+    
+    val list1 = List(1, 2, 3)
+    val list2 = List(4, 5, 6)
+    val list3 = List(7, 8, 9)
+
+    val listas = list1.map(x => x*xint)
+    val listbs = list2.map(x => x*yint)
+    val listcs = list3.map(x => x*zint)
+
+    //make lists based on the initial lists for pairing
+    val lista = listas.flatMap(x=>List(x,x,x,x,x,x,x,x,x))
+      
+    val listb1 = listbs.flatMap(x=>List(x,x,x))
+    val listb2 = List(listb1, listb1, listb1)
+    val listb = listb2.flatMap(x => x)
+      
+    val listc1 = List(listcs, listcs, listcs, listcs, listcs, listcs, listcs, listcs, listcs)
+    val listc = listc1.flatMap(x => x)
+      
+    //pair the modified lists for a final answer
+    val listfin = (lista, listb, listc).zipped.toList
+    
+    //print the answer
+    listfin.foreach {println}
+  }
+}
+
